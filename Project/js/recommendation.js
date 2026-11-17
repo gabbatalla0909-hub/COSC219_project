@@ -1,0 +1,1 @@
+// Will contain recommendation class with a function that will get results from the api.

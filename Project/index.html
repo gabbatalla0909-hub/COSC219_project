@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/styles.css">
+    <title>Home</title>
+</head>
+<body>
+    <header>
+        <h1>
+            Minecraft Material Finder
+        </h1>
+    </header>
+    <main>
+        <form>
+            <fieldset>
+                <legend>Enter the conditions of the biome you are building in...</legend>
+                <label for="dimension">Dimension</label>
+                <select id="dimension" name="dimension" required>
+                    <option value="ow">Overworld</option>
+                    <option value="nth">Nether</option>
+                    <option value="end">The End</option>
+                </select>
+                <label for="category">Category</label>
+                <select id="category" name="category">
+                    <option value="temp">Temperate</option>
+                    <option value="cold">Cold</option>
+                    <option value="warm">Warm</option>
+                    <option value="ocean">Ocean</option>
+                    <option value="ug">Underground</option>
+                    <option value="beach-spec">Beach & Special</option>
+                </select>
+                <label for="rarity">Rarity</label>
+                <select id="rarity" name="rarity">
+                    <option value="common">Common</option>
+                    <option value="uncommon">Uncommon</option>
+                    <option value="rare">Rare</option>
+                    <option value="very-rare">Very Rare</option>
+                    <option value="unique">Unique</option>
+                </select>
+            </fieldset>
+            <button type="submit">Find Building Materials</button>
+        </form>
+    </main>
+    <footer>
+        <h2>
+            Nav Links
+        </h2>
+        <nav>
+            <ul>
+                <li>
+                    <a href="index.html" id="home-pg-lnk">Home Page</a>
+                </li>
+                <li>
+                    <a href="about.html" id="about-pg-lnk">About</a>
+                </li>
+                <li>
+                    <a href="bookmarks.html" id="bookmrk-pg-lnk">Bookmarks</a>
+                </li>
+            </ul>
+        </nav>
+    </footer>
+</body>
+</html>
