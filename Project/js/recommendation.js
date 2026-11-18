@@ -1,1 +1,11 @@
-// Will contain recommendation class with a function that will get results from the api.
+export default class Recommendation {
+    static biome;
+
+    constructor(biome) {
+        this.biome = biome;
+    }
+
+    displayRecommendation() {
+        // Not implemented yet
+    }
+}
