@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="./js/app.js" defer></script>
+    <script type="module" src="./js/app.js" defer></script>
     <link rel="stylesheet" href="./css/styles.css">
     <title>Home</title>
 </head>
@@ -14,23 +14,23 @@
         </h1>
     </header>
     <main>
-        <form>
+        <form id="c-form" class="conditions-form">
             <fieldset>
                 <legend>Enter the conditions of the biome you are building in...</legend>
                 <label for="dimension">Dimension</label>
                 <select id="dimension" name="dimension" required>
-                    <option value="ow">Overworld</option>
-                    <option value="nth">Nether</option>
+                    <option value="overworld">Overworld</option>
+                    <option value="nether">Nether</option>
                     <option value="end">The End</option>
                 </select>
                 <label for="category">Category</label>
                 <select id="category" name="category">
-                    <option value="temp">Temperate</option>
+                    <option value="temperate">Temperate</option>
                     <option value="cold">Cold</option>
                     <option value="warm">Warm</option>
                     <option value="ocean">Ocean</option>
-                    <option value="ug">Underground</option>
-                    <option value="beach-spec">Beach & Special</option>
+                    <option value="underground">Underground</option>
+                    <option value="beach_special">Beach & Special</option>
                 </select>
                 <label for="rarity">Rarity</label>
                 <select id="rarity" name="rarity">
@@ -40,8 +40,16 @@
                     <option value="very-rare">Very Rare</option>
                     <option value="unique">Unique</option>
                 </select>
+                <label for="weather">Weather</label>
+                <select id="precipitation" name="weather">
+                    <option value="rain">Rain</option>
+                    <option value="snow">Snow</option>
+                    <option value="none">None</option>
+                </select>
             </fieldset>
             <button id="btn" type="submit">Find Building Materials</button>
+        </form>
+        <form id="b-form" class="biomes-form">
         </form>
     </main>
     <footer>

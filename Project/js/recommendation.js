@@ -1,4 +1,4 @@
-export default class Recommendation {
+export class Recommendation {
     static biome;
 
     constructor(biome) {
