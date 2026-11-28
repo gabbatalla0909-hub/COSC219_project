@@ -8,7 +8,6 @@ export class Recommendation {
     then creates a new array only containing the materials from the similar biomes, then creates a new array with the sub arrays of each biome's materials concatenated into it.
     */
 
-    // **NEED TO FIX DUPLICATES FROM BEING PRODUCED**
     getMats(biomeData) {
         const { data } = biomeData;
         const biomeWithMats = data.find(b => {
@@ -16,14 +15,16 @@ export class Recommendation {
                 return b;
             }
         });
-        const similarBiomes = data.filter(b => {
-            if (b.temperature >= biomeWithMats.temperature && b.category === biomeWithMats.category) {
-                return b.temperature;
+        console.log(biomeWithMats);
+        const similarBiomes = data.filter(m => {
+            if (m.temperature >= biomeWithMats.temperature && m.category === biomeWithMats.category) {
+                return m.temperature;
             }
         });
         const matArrs = similarBiomes.map(ma => ma.uniqueBlocks);
         const mats = matArrs.flat(); // Creates a new array with sub-array elements concatenated into it
-        return mats;
+        const cleanMats = mats.filter((cm, i, a) => a.indexOf(cm) === i); // Filters out duplicates, if any.
+        return cleanMats;
     }
 
 
@@ -33,6 +34,15 @@ export class Recommendation {
             return;
         }
         return mats.find(m => m === name);
+    }
+
+    convertFromLog(id) {
+        return id.replaceAll("log", "planks");
+    }
+
+    // Not used yet (11.27.26)
+    convertFromPlanks(id) {
+        return id.replaceAll("planks", "log");
     }
 
     // Filters material name string into the format of a Minecraft ID
@@ -47,8 +57,6 @@ export class Recommendation {
         return newMat;
     }
 
-    // 11.22.26: Left off here (Dallas)
-    // Got image generation for materials working.
     displayRecommendation(biomeData) {
         const mats = this.getMats(biomeData);
         const ul = document.querySelector("#mats");
@@ -58,11 +66,14 @@ export class Recommendation {
             const p = document.createElement("p");
             const img = document.createElement("img");
 
-            p.textContent = m;
-            img.setAttribute("src", "https://atlas.playcdu.co/img/ATM10/minecraft/" + this.getId(this.getMaterial(m, mats)));
+            p.textContent = (this.convertFromLog(this.getId(this.getMaterial(m, mats))).includes("planks")) ? m.replaceAll("Log", "Planks") : m;
+            img.setAttribute("src", "https://atlas.playcdu.co/img/ATM10/minecraft/" + this.convertFromLog(this.getId(this.getMaterial(m, mats))));
             li.appendChild(p);
             li.appendChild(img);
+            li.id = this.getId(m);
             ul.append(li);
+
+            // 11.27.26 last left off here (Dallas): Need to add converted log back to displayed materials
         });
     }
 }

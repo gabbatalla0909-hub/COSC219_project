@@ -38,7 +38,6 @@ btn.addEventListener("click", async (e) => {
         selectedBiome.biome = e.submitter.value;
         console.log(selectedBiome.biome);
         selectedBiome.removeBiomes();
-        // 11.22.26 began working with recommendation displaying.
         const rec = new Recommendation(selectedBiome);
         const res = await fetch("https://api.astroworldmc.com/api/v1/biomes");
         const data = await res.json();

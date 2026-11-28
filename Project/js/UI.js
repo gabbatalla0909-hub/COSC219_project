@@ -38,7 +38,7 @@ return card;
 export function displayItems(items, container, onChange){
     container.replaceChildren();
     if(items.length === 0){
-        const.msg = document.createElement("p");
+        const msg = document.createElement("p");
         msg.textContent = emptyMessage;
         container.append(msg);
         return;
